@@ -18,6 +18,12 @@ Returns:
 	- Output a single integer, denotes the maximum number of chickens Superman can protect with the given roof length.
 */
 
+/** The SupermanRescueChicken function that take superman protect limit, superman's roof length and chicken positions. then it'll fan-out goroutines to calculate the maximum number of chickens superman can protect.
+ * @params: protectLimit(uint), roofLength(uint), chickenPositions([]uint)
+ * @returns: protectNum(uint)
+ * time-complexity: O(n^2)
+ * memory-complexity: O(n)
+ */
 func SupermanRescueChicken(protectLimit, roofLength uint, chickenPositions []uint) (protectNum uint) {
 	wg := sync.WaitGroup{}
 	resultCh := make(chan uint)
@@ -38,6 +44,10 @@ func SupermanRescueChicken(protectLimit, roofLength uint, chickenPositions []uin
 		if protectNum < result {
 			protectNum = result
 		}
+	}
+
+	if protectNum > protectLimit {
+		protectNum = protectLimit
 	}
 
 	return
