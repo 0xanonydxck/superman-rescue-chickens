@@ -53,6 +53,9 @@ func SupermanRescueChicken(protectLimit, roofLength uint, chickenPositions []uin
 	return
 }
 
+/** The Rescue function that take wait group, position, protect limit, roof length, chicken positions and result channel. then it'll calculate the number of chickens that superman can protect
+ * @params: wg(*sync.WaitGroup), position(uint), protectLimit(uint), roofLength(uint), chickenPositions([]uint), resultCh(chan<- uint)
+ */
 func Rescue(wg *sync.WaitGroup, position, protectLimit, roofLength uint, chickenPositions []uint, resultCh chan<- uint) {
 	defer wg.Done()
 	var roofLimit uint = roofLength + position
