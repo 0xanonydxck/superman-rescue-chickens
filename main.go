@@ -11,10 +11,6 @@ import (
 	"github.com/cqroot/prompt/input"
 )
 
-func init() {
-
-}
-
 func inputProtectLimitAndRoofLength() (uint, uint) {
 	answer, err := prompt.New().
 		Ask("Enter protectLimit and roofLength (ex. 5 5):").
